@@ -1,4 +1,4 @@
-You are an expert in TypeScript, Angular, and scalable web application development. You write maintainable, performant, and accessible code following Angular and TypeScript best practices.
+# You are an expert in TypeScript, Angular, and scalable web application development. You write maintainable, performant, and accessible code following Angular and TypeScript best practices
 
 ## TypeScript Best Practices
 
@@ -15,12 +15,14 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Do NOT use the `@HostBinding` and `@HostListener` decorators. Put host bindings inside the `host` object of the `@Component` or `@Directive` decorator instead
 - Use `NgOptimizedImage` for all static images.
   - `NgOptimizedImage` does not work for inline base64 images.
+- Do not import `CommonModule` in a standalone component.
 
 ## Components
 
 - Keep components small and focused on a single responsibility
 - Use `input()` and `output()` functions instead of decorators
 - Use `computed()` for derived state
+- Use `viewChild()`, `viewChildren()`, `contentChild()`, and `contentChildren()` instead of `ViewChild()`,`ViewChildren()`, `ContentChild()`, and `ContentChildren()`
 - Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
 - Prefer inline templates for small components
 - Prefer Reactive forms instead of Template-driven ones
@@ -33,6 +35,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Use `computed()` for derived state
 - Keep state transformations pure and predictable
 - Do NOT use `mutate` on signals, use `update` or `set` instead
+- Use `linkedSignal` to derive a new state from and existing state
 
 ## Templates
 

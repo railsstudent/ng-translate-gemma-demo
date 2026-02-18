@@ -20,7 +20,7 @@
   - [ ] Wrap brand group in a `routerLink` to root `/`.
 - [ ] Task: Navigation Links
   - [ ] Write failing test for the "Translate" navigation link presence and route.
-  - [ ] Implement "Translate" link with `routerLink="/translation"`.
+  - [ ] Implement "Translate" link with `routerLink="/translate-blog"`.
   - [ ] Style links for hover/active states.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Navigation & Identity Implementation' (Protocol in workflow.md)
 
@@ -40,6 +40,6 @@
 
 - [ ] Task: Integrate Header into AppComponent
   - [ ] Write failing test in `app.component.spec.ts` to verify `<app-header>` presence.
-  - [ ] Add `HeaderComponent` to `AppComponent` imports and template.
+  - [ ] Add `HeaderComponent` to `AppComponent` imports and inline template.
   - [ ] Adjust `AppComponent` main content layout to account for fixed header height (e.g., `pt-16`).
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Application Integration' (Protocol in workflow.md)

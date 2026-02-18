@@ -26,13 +26,16 @@ Implement the core download logic in the Web Worker.
 Integrate the worker into the Angular service and manage the download state.
 
 - [ ] **Task 1: Declare status signal and statusMessage computed signal in Service**
-  - [ ] Declare a `StatusType` type to `idle|downloading|success|error|unsupported`.
-  - [ ] Implement the private `#status` signal to `{ status: StatusType, msg?: string, progress?: number }`.
+  - [ ] Create `src/app/on-device-models/types.ts` to declare:
+    - `StatusType = 'idle' | 'downloading' | 'success' | 'error' | 'unsupported'`
+    - `type ModelStatus = { status: StatusType; msg?: string; progress?: number; };`
+  - [ ] Implement the private `#status` signal to `ModelStatus`.
   - [ ] Implement the `statusMessage` computed signal:
     - `error`, `success`, `unsupported` -> return `msg`.
     - `downloading` -> return `Downloading a model: ${progress}%`.
     - `idle` / default -> return `''`.
-  - [ ] Expose a read-only `status` signal, `status = this.#signal.asReadonly()`.
+  - [ ] Expose a read-only `status` signal, `status = this.#status.asReadonly()`.
+  - [ ] Expose a computed `statusType` signal that returns the `status().status`.
 - [ ] **Task 2: Initialize Worker in Service**
   - [ ] In `ModelsService` constructor, check for `typeof Worker !== 'undefined'`.
   - [ ] If unsupported, set #status signal to `{ status: 'unsupported' }`.
@@ -46,7 +49,7 @@ Integrate the worker into the Angular service and manage the download state.
   - [ ] When `tts` fails, set `{ status: 'error', msg: 'tts download failed.' }`.
 - [ ] **Task 4: Write Unit Tests for Service**
   - [ ] Mock the Web Worker to verify message passing.
-  - [ ] Verify `#signal` updates for different worker statuses.
+  - [ ] Verify `#status` updates for different worker statuses.
   - [ ] Verify `statusMessage` correctly derives values for all supported states.
   - [ ] Verify `status` correctly shows the readonly-value of `#status`.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 2: Models Service Implementation' (Protocol in workflow.md)**

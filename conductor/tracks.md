@@ -29,5 +29,10 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
+- [ ] **Track: Update HomeComponent and HeaderComponent to accept an status signal of type StatusType. When status is not 'success', the translate-blog link must be hidden.**
+  *Link: [./tracks/status_dependent_navigation_20260218/](./tracks/status_dependent_navigation_20260218/)*
+
+---
+
 - [ ] **Track: Implement the content retrieval from URLs, cleaning, and the translation UI.**
   *Link: [./tracks/core_workflow_20260217/](./tracks/core_workflow_20260217/)*

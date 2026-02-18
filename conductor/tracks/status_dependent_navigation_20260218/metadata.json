@@ -1,0 +1,8 @@
+{
+  "track_id": "status_dependent_navigation_20260218",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-18T10:00:00Z",
+  "updated_at": "2026-02-18T10:00:00Z",
+  "description": "Update HomeComponent and HeaderComponent to accept an status signal of type StatusType. When status is not 'success', the translate-blog link must be hidden."
+}

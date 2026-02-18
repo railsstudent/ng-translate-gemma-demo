@@ -19,10 +19,15 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Implement the content retrieval from URLs, cleaning, and the translation UI.**
-  *Link: [./tracks/core_workflow_20260217/](./tracks/core_workflow_20260217/)*
+- [ ] **Track: Split the web worker task from the core workflow. Implement model download logic in a dedicated worker with status signals in ModelsService.**
+  *Link: [./tracks/model_download_worker_20260218/](./tracks/model_download_worker_20260218/)*
 
 ---
 
-- [ ] **Track: Split the web worker task from the core workflow. Implement model download logic in a dedicated worker with status signals in ModelsService.**
-  *Link: [./tracks/model_download_worker_20260218/](./tracks/model_download_worker_20260218/)*
+- [ ] **Track: Create a status component in core/ui/status folder. It is a presentational component that displays the status. It has a input signal to display the status and a message.**
+  *Link: [./tracks/status_component_20260218/](./tracks/status_component_20260218/)*
+
+---
+
+- [ ] **Track: Implement the content retrieval from URLs, cleaning, and the translation UI.**
+  *Link: [./tracks/core_workflow_20260217/](./tracks/core_workflow_20260217/)*

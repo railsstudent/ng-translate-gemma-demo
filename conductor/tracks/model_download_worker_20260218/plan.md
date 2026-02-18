@@ -18,26 +18,37 @@ Implement the core download logic in the Web Worker.
 - [ ] **Task 4: Implement Status Reporting**
   - [ ] Send `{ status: 'idle' }` on initialization and after successful downloads.
   - [ ] Send `{ status: 'error', msg }` on any caught exceptions.
+  - [ ] Send `{ status: 'success', msg }` after all models are downloaded successful.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 1: Web Worker Development' (Protocol in workflow.md)**
 
 ## Phase 2: Models Service Implementation
 
 Integrate the worker into the Angular service and manage the download state.
 
-- [ ] **Task 1: Initialize Worker in Service**
+- [ ] **Task 1: Declare status signal and statusMessage computed signal in Service**
+  - [ ] Declare a `StatusType` type to `idle|downloading|success|error|unsupported`.
+  - [ ] Implement the private `#status` signal to `{ status: StatusType, msg?: string, progress?: number }`.
+  - [ ] Implement the `statusMessage` computed signal:
+    - `error`, `success`, `unsupported` -> return `msg`.
+    - `downloading` -> return `Downloading a model: ${progress}%`.
+    - `idle` / default -> return `''`.
+  - [ ] Expose a read-only `status` signal, `status = this.#signal.asReadonly()`.
+- [ ] **Task 2: Initialize Worker in Service**
   - [ ] In `ModelsService` constructor, check for `typeof Worker !== 'undefined'`.
-  - [ ] If unsupported, set status signal to `{ status: 'unsupported' }`.
+  - [ ] If unsupported, set #status signal to `{ status: 'unsupported' }`.
   - [ ] If supported, instantiate the worker.
-- [ ] **Task 2: Implement State Management**
-  - [ ] Create a writable signal for `status`.
-  - [ ] Expose a read-only `status` signal.
 - [ ] **Task 3: Implement Message Handling & Orchestration**
   - [ ] Implement `worker.onmessage` to update the status signal.
   - [ ] Trigger `postMessage({ type: 'translate-gemma' })` immediately on init.
-  - [ ] When `translate-gemma` finishes (status returns to `idle`), trigger `postMessage({ type: 'tts' })`.
+  - [ ] When `translate-gemma` finishes successfully (status returns to `idle`), trigger `postMessage({ type: 'tts' })`.
+  - [ ] When `translate-gemma` fails, set `{ status: 'error', msg: 'translate-gemma download failed.'}` and no further action.
+  - [ ] When `tts` finishes successfully, set `{ status: 'success', msg: 'All models are downloaded successfully' }`.
+  - [ ] When `tts` fails, set `{ status: 'error', msg: 'tts download failed.' }`.
 - [ ] **Task 4: Write Unit Tests for Service**
   - [ ] Mock the Web Worker to verify message passing.
-  - [ ] Verify signal updates for different worker statuses.
+  - [ ] Verify `#signal` updates for different worker statuses.
+  - [ ] Verify `statusMessage` correctly derives values for all supported states.
+  - [ ] Verify `status` correctly shows the readonly-value of `#status`.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 2: Models Service Implementation' (Protocol in workflow.md)**
 
 ## Phase 3: Application Integration & Verification
@@ -46,10 +57,9 @@ Verify the system works end-to-end in the application shell.
 
 - [ ] **Task 1: Integrate with AppComponent**
   - [ ] Inject `ModelsService` into `AppComponent`.
-  - [ ] Use an `effect` or lifecycle hook to monitor the status signal.
-  - [ ] Log status updates to the console: `console.log('Model Download Status:', status())`.
+  - [ ] Log status updates to the console in `ModelsService`'s constructor: `console.log('Model Download Status:', status())`.
 - [ ] **Task 2: End-to-End Manual Verification**
   - [ ] Open the browser console and verify the sequence of downloads.
   - [ ] Verify progress updates are logged.
-  - [ ] Verify the final `idle` state is reached.
+  - [ ] Verify the final `success` state is reached.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 3: Application Integration & Verification' (Protocol in workflow.md)**

@@ -33,7 +33,7 @@ This track focuses on implementing a robust model download system using a dedica
     - If supported: Proceeds with worker initialization.
     - If unsupported: Sets the status signal to `{ status: 'unsupported' }`.
 - **LocalStorage Service (`src/app/on-device-models/services/local-storage.service.ts`):**
-  - **New:** Provides a wrapper for `localStorage` with `getItem(key: string): string | null` and `setItem(key: string, value: string): void`.
+  - Provides a wrapper for `localStorage` with `getItem(key: string): string | null` and `setItem(key: string, value: string): void`.
 - **State Management:**
   - Maintains a private writable signal for worker status.
   - Exposes a public read-only signal for consumers (e.g., `AppComponent`).

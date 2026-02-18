@@ -32,13 +32,24 @@ This track focuses on implementing a robust model download system using a dedica
   - Checks for Web Worker support:
     - If supported: Proceeds with worker initialization.
     - If unsupported: Sets the status signal to `{ status: 'unsupported' }`.
+- **LocalStorage Service (`src/app/on-device-models/services/local-storage.service.ts`):**
+  - **New:** Provides a wrapper for `localStorage` with `getItem(key: string): string | null` and `setItem(key: string, value: string): void`.
 - **State Management:**
   - Maintains a private writable signal for worker status.
   - Exposes a public read-only signal for consumers (e.g., `AppComponent`).
+  - Maintains `translation_pipeline` and `tts_pipeline` signals (typed as `any` or specific Pipeline types) to store the initialized pipelines.
 - **Workflow Orchestration:**
+  - **Step 0:** Checks `localStorage` via `LocalStorageService` for `last_model_download_date`.
+    - If `last_model_download_date` does not exist OR `(current date - last_model_download_date) > DOWNLOAD_EXPIRATION_MS` (30 days):
+      - Proceed to **Step 1** (Force download).
+    - Else:
+      - Skip to **Step 4** (Load pipelines from cache).
   - **Step 1:** Automatically triggers the download for 'translate-gemma' upon worker initialization.
   - **Step 2:** Listens for the `idle` status after the 'translate-gemma' download completes.
   - **Step 3:** Automatically triggers the download for 'tts'.
+  - **Step 4:** Upon successful completion of downloads (or if skipped):
+    - Stores the current timestamp to `last_model_download_date` in `localStorage` via `LocalStorageService` (if downloaded).
+    - Instantiates/Loads the `translation_pipeline` and `tts_pipeline`
 - **Message Handling:**
   - Updates the status signal based on messages received from the worker (`onmessage`).
 

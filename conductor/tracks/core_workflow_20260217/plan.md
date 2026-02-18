@@ -14,9 +14,6 @@
 - [ ] Task: Create the `TranslationComponent` shell and route configuration.
   - [ ] Write Tests
   - [ ] Implement Feature
-- [ ] Task: Implement the Model Status UI (progress bar and messages) using Tailwind CSS.
-  - [ ] Write Tests
-  - [ ] Implement Feature
 - [ ] Task: Implement the Input Form (URL input, Language selector) and Translate button.
   - [ ] Write Tests
   - [ ] Implement Feature

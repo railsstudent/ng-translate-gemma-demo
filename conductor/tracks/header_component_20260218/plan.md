@@ -4,6 +4,10 @@
 
 - [ ] Task: Scaffold Header Component
   - [ ] Create `src/app/layout/header/header.component.ts` (standalone, OnPush).
+  - [ ] Import `NgIcon` and `provideIcons` from `@ng-icons/core`.
+  - [ ] Import `bootstrapTranslate` from `@ng-icons/bootstrap-icons`.
+  - [ ] Add `NgIcon` to the `imports` array.
+  - [ ] Add `viewProviders: [provideIcons({ bootstrapTranslate })]` to the `@Component` decorator.
   - [ ] Write failing test to verify component creation in `header.component.spec.ts`.
   - [ ] Implement component to pass the test.
 - [ ] Task: Basic Layout & Positioning
@@ -20,7 +24,7 @@
   - [ ] Wrap brand group in a `routerLink` to root `/`.
 - [ ] Task: Navigation Links
   - [ ] Write failing test for the "Translate" navigation link presence and route.
-  - [ ] Implement "Translate" link with `routerLink="/translate-blog"`.
+  - [ ] Implement "Translate" link with `routerLink="/translate-blog"` and include `<ng-icon name="bootstrapTranslate" />`.
   - [ ] Style links for hover/active states.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Navigation & Identity Implementation' (Protocol in workflow.md)
 

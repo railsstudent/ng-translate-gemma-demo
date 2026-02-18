@@ -19,5 +19,10 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Implement the core translation workflow, including model loading via web workers, status tracking with signals, content retrieval from URLs, and the translation UI.**
+- [ ] **Track: Implement the content retrieval from URLs, cleaning, and the translation UI.**
   *Link: [./tracks/core_workflow_20260217/](./tracks/core_workflow_20260217/)*
+
+---
+
+- [ ] **Track: Split the web worker task from the core workflow. Implement model download logic in a dedicated worker with status signals in ModelsService.**
+  *Link: [./tracks/model_download_worker_20260218/](./tracks/model_download_worker_20260218/)*

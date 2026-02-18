@@ -1,0 +1,8 @@
+{
+  "track_id": "footer_styling_20260218",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-02-18T12:00:00Z",
+  "updated_at": "2026-02-18T12:00:00Z",
+  "description": "Add a footer component to list the author, Connie Leung, copyright, and the technical stack. Then, insert this component to the inline template of the AppComponent. Also establish global indigo styling."
+}

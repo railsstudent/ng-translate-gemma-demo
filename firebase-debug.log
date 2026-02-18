@@ -1,0 +1,90 @@
+[debug] [2026-02-18T02:05:48.070Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T02:05:48.071Z] > authorizing via signed-in user (cleung334@gmail.com)
+[debug] [2026-02-18T02:05:48.071Z] Checked if tokens are valid: false, expires at: 1771376353422
+[debug] [2026-02-18T02:05:48.071Z] Checked if tokens are valid: false, expires at: 1771376353422
+[debug] [2026-02-18T02:05:48.072Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T02:05:48.072Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T02:05:48.072Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T02:05:48.074Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T02:05:48.074Z] > authorizing via signed-in user (cleung334@gmail.com)
+[debug] [2026-02-18T02:05:48.074Z] Checked if tokens are valid: false, expires at: 1771376353422
+[debug] [2026-02-18T02:05:48.074Z] Checked if tokens are valid: false, expires at: 1771376353422
+[debug] [2026-02-18T02:05:48.074Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T02:05:48.074Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T02:05:48.074Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T02:05:48.351Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T02:05:48.351Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T02:05:48.365Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo [none]
+[debug] [2026-02-18T02:05:48.366Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T02:05:48.366Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T02:05:48.380Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo [none]
+[debug] [2026-02-18T02:05:48.839Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo 200
+[debug] [2026-02-18T02:05:48.839Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo {"name":"projects/vertexai-tts/billingInfo","projectId":"vertexai-tts","billingAccountName":"billingAccounts/01DA30-2D588A-E1AACE","billingEnabled":true}
+[debug] [2026-02-18T02:05:48.842Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.843Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.843Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.843Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.848Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.848Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.848Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.848Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:48.848Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com [none]
+[debug] [2026-02-18T02:05:48.848Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:48.848Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T02:05:48.848Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:48.849Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T02:05:48.849Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:48.849Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com [none]
+[debug] [2026-02-18T02:05:48.849Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:49.675Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo 200
+[debug] [2026-02-18T02:05:49.675Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo {"name":"projects/vertexai-tts/billingInfo","projectId":"vertexai-tts","billingAccountName":"billingAccounts/01DA30-2D588A-E1AACE","billingEnabled":true}
+[debug] [2026-02-18T02:05:49.678Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.678Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.678Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.679Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.680Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.680Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.680Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.680Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:49.680Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com [none]
+[debug] [2026-02-18T02:05:49.680Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:49.681Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T02:05:49.681Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:49.681Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T02:05:49.681Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:49.682Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com [none]
+[debug] [2026-02-18T02:05:49.682Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com  x-goog-user-project=vertexai-tts
+[debug] [2026-02-18T02:05:50.136Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com 403
+[debug] [2026-02-18T02:05:50.136Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com [omitted]
+[debug] [2026-02-18T02:05:50.186Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T02:05:50.186Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T02:05:50.187Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T02:05:50.187Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T02:05:50.189Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com 200
+[debug] [2026-02-18T02:05:50.190Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com [omitted]
+[debug] [2026-02-18T02:05:50.892Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com 403
+[debug] [2026-02-18T02:05:50.892Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseio.com [omitted]
+[debug] [2026-02-18T02:05:50.948Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T02:05:50.949Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T02:05:50.949Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T02:05:50.950Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T02:05:50.954Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com 200
+[debug] [2026-02-18T02:05:50.954Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/vertexai-tts/services/firestore.googleapis.com [omitted]
+[debug] [2026-02-18T02:05:51.027Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T02:05:51.027Z] > authorizing via signed-in user (cleung334@gmail.com)
+[debug] [2026-02-18T02:05:51.027Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:51.027Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:51.027Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo [none]
+[debug] [2026-02-18T02:05:51.296Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo 200
+[debug] [2026-02-18T02:05:51.296Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo {"name":"projects/vertexai-tts/billingInfo","projectId":"vertexai-tts","billingAccountName":"billingAccounts/01DA30-2D588A-E1AACE","billingEnabled":true}
+[debug] [2026-02-18T02:05:51.297Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T02:05:51.298Z] > authorizing via signed-in user (cleung334@gmail.com)
+[debug] [2026-02-18T02:05:51.367Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T02:05:51.367Z] > authorizing via signed-in user (cleung334@gmail.com)
+[debug] [2026-02-18T02:05:51.367Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:51.367Z] Checked if tokens are valid: true, expires at: 1771383947366
+[debug] [2026-02-18T02:05:51.367Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo [none]
+[debug] [2026-02-18T02:05:52.442Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo 200
+[debug] [2026-02-18T02:05:52.442Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/vertexai-tts/billingInfo {"name":"projects/vertexai-tts/billingInfo","projectId":"vertexai-tts","billingAccountName":"billingAccounts/01DA30-2D588A-E1AACE","billingEnabled":true}
+[debug] [2026-02-18T02:05:52.443Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T02:05:52.443Z] > authorizing via signed-in user (cleung334@gmail.com)

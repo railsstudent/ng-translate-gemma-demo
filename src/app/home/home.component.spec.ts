@@ -17,7 +17,7 @@ describe('HomeComponent', () => {
       ]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -32,9 +32,14 @@ describe('HomeComponent', () => {
     expect(compiled.querySelector('h1')?.textContent).toContain('On Device Blog Translation with Gemma');
   });
 
-  it('should display the description', () => {
+  it('should display the first description', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('p')?.textContent).toContain('Run TranslateGemma directly in your browser to translate technical blog posts without sending data to a server. Private, lower latency, zero cost, on-device translation powered by Hugging Face Transformers.js, Angular, and Web Worker.');
+    expect(compiled.querySelector('p')?.textContent).toContain('Run TranslateGemma directly in your browser to translate technical blog posts without sending data to a server.');
+  });
+
+  it('should display the second description', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('p:nth-of-type(2)')?.textContent).toContain('Private, low latency, zero cost, on-device translation powered by Hugging Face Transformers.js and Angular.');
   });
 
   it('should have a navigation link to translate-blog', () => {

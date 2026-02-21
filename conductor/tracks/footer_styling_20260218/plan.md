@@ -39,10 +39,10 @@ Create the standalone footer component with responsive sections.
 
 Integrate the footer into the main application shell.
 
-- [ ] **Task 1: Update AppComponent**
+- [x] **Task 1: Update AppComponent** [47e1bf5]
   - [ ] Import `FooterComponent` into `AppComponent`.
   - [ ] Add `<app-footer />` to the bottom of the `AppComponent` inline template.
   - [ ] Ensure the main content area expands to push the footer to the bottom (e.g., using a flex-col wrapper with `min-h-screen`).
-- [ ] **Task 2: Final Responsive Check**
+- [x] **Task 2: Final Responsive Check** [47e1bf5]
   - [ ] Verify the layout on mobile and desktop viewports.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 3: Integration & Final Layout' (Protocol in workflow.md)**

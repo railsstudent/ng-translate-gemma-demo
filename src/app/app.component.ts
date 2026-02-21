@@ -16,4 +16,7 @@ import { HeaderComponent } from './layout/header/header.component';
     </div>
   `,
 })
+/**
+ * App is the root component of the application.
+ */
 export class App {}

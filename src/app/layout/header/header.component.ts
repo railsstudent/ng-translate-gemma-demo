@@ -46,9 +46,15 @@ import { bootstrapList, bootstrapTranslate, bootstrapX } from '@ng-icons/bootstr
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [provideIcons({ bootstrapTranslate, bootstrapList, bootstrapX })]
 })
+/**
+ * HeaderComponent provides the primary navigation and brand identity for the application.
+ */
 export class HeaderComponent {
   readonly isMenuOpen = signal(false);
 
+  /**
+   * Toggles the visibility of the mobile navigation menu.
+   */
   toggleMenu(): void {
     this.isMenuOpen.update((open) => !open);
   }

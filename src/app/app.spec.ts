@@ -1,6 +1,6 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { App } from './app.component';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -20,6 +20,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ng-translate-gemma-demo');
+    expect(compiled.querySelector('div')?.textContent).toContain('Hello ng-translate-gemma-demo');
   });
 });

@@ -35,7 +35,7 @@ Create the standalone footer component with responsive sections.
   - [ ] Verify the repository link has the correct attributes.
 - [x] **Task: Conductor - User Manual Verification 'Phase 2: Footer Component Development' (Protocol in workflow.md)**
 
-## Phase 3: Integration & Final Layout
+## Phase 3: Integration & Final Layout [checkpoint: 15da91d]
 
 Integrate the footer into the main application shell.
 
@@ -45,4 +45,4 @@ Integrate the footer into the main application shell.
   - [ ] Ensure the main content area expands to push the footer to the bottom (e.g., using a flex-col wrapper with `min-h-screen`).
 - [x] **Task 2: Final Responsive Check** [47e1bf5]
   - [ ] Verify the layout on mobile and desktop viewports.
-- [ ] **Task: Conductor - User Manual Verification 'Phase 3: Integration & Final Layout' (Protocol in workflow.md)**
+- [x] **Task: Conductor - User Manual Verification 'Phase 3: Integration & Final Layout' (Protocol in workflow.md)**

@@ -26,5 +26,5 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
 })
 export class FooterComponent {
   copyright = computed(() => `© ${new Date().getFullYear()} Connie Leung`);
-  techStack = "The demo is built by Angular and Transformer.js.";
+  readonly techStack = "The demo is built by Angular and Transformer.js.";
 }

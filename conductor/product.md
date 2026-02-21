@@ -26,6 +26,7 @@ This application is a demonstration of on-device machine translation using the G
 ## Technical Implementation
 
 - **Component Architecture:** Implement a modular folder structure.
+  - **Layout Folder:** House the `HeaderComponent` (global navigation and brand identity) and `FooterComponent`.
   - **Translation Folder:** House the `TranslationComponent` (UI) and `TranslationService` (state management).
   - **App Component:** Serve as the root with a `<router-outlet>` to handle navigation.
 - **Routing:** Configure Angular Router to load the `TranslationComponent` by default.

@@ -13,7 +13,7 @@ describe('FooterComponent', () => {
       providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -30,7 +30,13 @@ describe('FooterComponent', () => {
 
   it('should display the author name', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Connie Leung');
+    // expect(compiled.textContent).toContain('Connie Leung');
+
+    const link = fixture.debugElement.query(By.css('a[href="https://github.com/railsstudent/"]'));
+    expect(link).toBeTruthy();
+    expect(link.attributes['target']).toBe('_blank');
+    expect(link.attributes['rel']).toContain('noopener');
+    expect(link.nativeElement.textContent).toContain('Connie Leung');
   });
 
   it('should display the tech stack', () => {
@@ -39,7 +45,7 @@ describe('FooterComponent', () => {
   });
 
   it('should have a github link with correct attributes', () => {
-    const link = fixture.debugElement.query(By.css('a[href*="github.com"]'));
+    const link = fixture.debugElement.query(By.css('a[href*="github.com/railsstudent/ng-translate-gemma-demo"]'));
     expect(link).toBeTruthy();
     expect(link.attributes['target']).toBe('_blank');
     expect(link.attributes['rel']).toContain('noopener');

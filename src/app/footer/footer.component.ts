@@ -7,9 +7,12 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
   imports: [NgIcon],
   viewProviders: [provideIcons({ bootstrapGithub })],
   template: `
-    <footer class="flex justify-between items-center p-4 w-full bg-indigo-600 text-white">
-      <div>
-        {{ copyright() }}
+    <footer class="flex justify-between items-center p-4 w-full bg-blue-800 text-white">
+      <div class="flex">
+        <span class="mr-2">&copy; {{ copyright }}</span>
+        <a href="https://github.com/railsstudent/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-gray-300">
+         <ng-icon name="bootstrapGithub"></ng-icon>Connie Leung
+        </a>
       </div>
       <div>
         {{ techStack }}
@@ -25,6 +28,6 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-  copyright = computed(() => `© ${new Date().getFullYear()} Connie Leung`);
+  readonly copyright = new Date().getFullYear();
   readonly techStack = "The demo is built by Angular and Transformer.js.";
 }

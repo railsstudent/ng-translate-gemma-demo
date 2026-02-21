@@ -1,23 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { bootstrapGithub, bootstrapTranslate } from '@ng-icons/bootstrap-icons';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIcon, FooterComponent],
-  viewProviders: [provideIcons({ bootstrapGithub, bootstrapTranslate })],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent],
   template: `
     <div class="flex flex-col min-h-screen">
-      <main class="flex-1">
-        <div>Hello {{ title() }}<ng-icon name="bootstrapGithub" /><ng-icon name="bootstrapTranslate" /></div>
+      <app-header />
+      <main class="flex-1 pt-16">
         <router-outlet />
       </main>
       <app-footer />
     </div>
   `,
 })
-export class App {
-  protected readonly title = signal('ng-translate-gemma-demo');
-}
+export class App {}

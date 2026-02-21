@@ -4,7 +4,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Create a header component with app icon, app title, a link to navigate to the TranlsationComponent**
+- [x] **Track: Create a header component with app icon, app title, a link to navigate to the TranlsationComponent**
   *Link: [./tracks/header_component_20260218/](./tracks/header_component_20260218/)*
 
 ---

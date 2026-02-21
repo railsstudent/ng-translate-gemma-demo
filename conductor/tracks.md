@@ -4,11 +4,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [x] **Track: Add a footer component to list the author, Connie Leung, copyright, and the technical stack. Also establish global indigo styling.**
-  *Link: [./tracks/footer_styling_20260218/](./tracks/footer_styling_20260218/)*
-
----
-
 - [ ] **Track: Create a HomeComponent that is shown when the application is first loaded. It has a center div that displays the name of the application "On Device Blog Translation with Gemma" at the center. It has a description to describe the purpose of the app and a link to navigate to the TranslationComponent.**
   *Link: [./tracks/home_component_20260218/](./tracks/home_component_20260218/)*
 

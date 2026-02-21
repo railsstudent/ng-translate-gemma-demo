@@ -2,7 +2,7 @@
 
 ## Overview
 
-This track implements UI logic to gate access to the translation feature based on the model download status. It ensures that navigation links are visually and functionally disabled until the models are ready, and provides a defensive fallback in the `TranslateComponent`.
+This track implements UI logic to gate access to the translation feature based on the model download status. It ensures that navigation links are visually and functionally disabled until the models are ready, and provides a defensive fallback in the `TranslationComponent`.
 
 ## User Persona
 

@@ -4,9 +4,11 @@
 
 - [ ] Task: Scaffold Header Component
   - [ ] Create `src/app/layout/header/header.component.ts` (standalone, OnPush).
+  - [ ] Import `RouterLink` from `@angular/router`
   - [ ] Import `NgIcon` and `provideIcons` from `@ng-icons/core`.
+  - [ ] Import `NgOptimizedImage` from `@angular/common`.
   - [ ] Import `bootstrapTranslate` from `@ng-icons/bootstrap-icons`.
-  - [ ] Add `NgIcon` to the `imports` array.
+  - [ ] Add `NgIcon`, `NgOptimizedImage`, and `RouterLink` to the `imports` array.
   - [ ] Add `viewProviders: [provideIcons({ bootstrapTranslate })]` to the `@Component` decorator.
   - [ ] Write failing test to verify component creation in `header.component.spec.ts`.
   - [ ] Implement component to pass the test.

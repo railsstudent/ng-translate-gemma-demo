@@ -5,11 +5,16 @@
 Update the shared navigation components to react to the application status.
 
 - [ ] **Task 1: Update HeaderComponent**
+  - [ ] Import `input` from `@angular/core`.
+  - [ ] Import `StatusType` from `src/app/on-device-models/types.ts`.
   - [ ] Add `status = input.required<StatusType>()` to the component.
   - [ ] Update the template for the "Translate" link:
     - Add `[class.disabled]="status() !== 'success'"`
     - Add `[style.pointer-events]="status() !== 'success' ? 'none' : 'auto'"`
 - [ ] **Task 2: Update HomeComponent**
+  - [ ] Import `ROUTER_OUTLET_DATA` from `@angular/router`.
+  - [ ] Import `Signal` from `@angular/core`.
+  - [ ] Import `ModelStatus` from `src/app/on-device-models/types.ts`.
   - [ ] Add `status = inject(ROUTER_OUTLET_DATA) as Signal<ModelStatus>`;
   - [ ] Update the template for the "Start Translating" link:
     - Add `[class.disabled]="status().status !== 'success'"`
@@ -24,6 +29,9 @@ Update the shared navigation components to react to the application status.
 Implement defensive programming in the `TranslationComponent` to handle premature navigation.
 
 - [ ] **Task 1: Update TranslationComponent Template**
+  - [ ] Import `ROUTER_OUTLET_DATA` from `@angular/router`.
+  - [ ] Import `Signal` from `@angular/core`.
+  - [ ] Import `ModelStatus` from `src/app/on-device-models/types.ts`.
   - [ ] Add `status = inject(ROUTER_OUTLET_DATA) as Signal<ModelStatus>`;
   - [ ] Wrap the component template in an `@if (status().status === 'success')` block.
   - [ ] In the `@if` branch, add a stub: `<p>Translation UI (Content retrieval workflow implementation coming soon...)</p>`.

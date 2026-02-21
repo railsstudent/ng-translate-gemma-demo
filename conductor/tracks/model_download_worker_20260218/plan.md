@@ -50,16 +50,17 @@ Integrate the worker into the Angular service and manage the download state.
   - [ ] If unsupported, set #status signal to `{ status: 'unsupported' }`.
   - [ ] If supported, instantiate the worker and inject `LocalStorageService`.
 - [ ] **Task 4: Implement Message Handling & Orchestration with Date Check**
+  - [ ] Implement `ALL_MODELS = ['translate-gemma', 'tts']`.
   - [ ] Implement logic to check `localStorageService.getItem('last_model_download_date')`.
   - [ ] If date exists AND `(Date.now() - Number(last_model_download_date) < DOWNLOAD_EXPIRATION_MS)`:
     - [ ] Skip download sequence and proceed directly to pipeline instantiation.
   - [ ] If date missing OR > DOWNLOAD_EXPIRATION_MS:
     - [ ] Trigger `postMessage({ type: 'delete-all-models' })` to delete all models from the cache keyed by the `transformers-cache`.
-    - [ ] Trigger `postMessage({ type: 'translate-gemma' })` to start the sequential download.
+    - [ ] Trigger `postMessage({ type: ALL_MODELS[0] })` to start the sequential download.
   - [ ] Implement `worker.onmessage` to update the status signal and log the new state to the console.
-  - [ ] When a model finishes successfully (status becomes `ready`), trigger `postMessage` for the next model (e.g., 'tts').
+  - [ ] When a model finishes successfully (status becomes `ready`), trigger `postMessage` for the next model in `ALL_MODELS` (e.g., 'tts').
   - [ ] When a model fails, set `{ status: 'error', msg: event.data.msg }` and no further action.
-  - [ ] When all models are successfully downloaded
+  - [ ] When all models in `ALL_MODELS` are successfully downloaded
     - [ ] If downloaded: Set `localStorageService.setItem('last_model_download_date', Date.now().toString())` and set `{ status: 'success', msg: 'All models are downloaded successfully.' }`.
   - [ ] If the download sequence was skipped:
     - [ ]  Set `{ status: 'success', msg: 'Models loaded from cache.' }`.

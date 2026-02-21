@@ -4,5 +4,5 @@
   "status": "new",
   "created_at": "2026-02-18T11:20:00Z",
   "updated_at": "2026-02-18T11:20:00Z",
-  "description": "Split the web worker task from the core workflow. Implement web worker logic in the app/on-device-models/workers/download-model.worker.ts file."
+  "description": "Split the web worker task from the core workflow. Implement web worker logic in the app/on-device-models/workers/download-models.worker.ts file."
 }

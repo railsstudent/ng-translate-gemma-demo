@@ -7,6 +7,8 @@ Create the entry point for the application with the specified content and layout
 - [ ] **Task 1: Generate HomeComponent**
   - [ ] Create `src/app/home/home.component.ts` as a standalone component.
   - [ ] Set `changeDetection: ChangeDetectionStrategy.OnPush`.
+  - [ ] Import `RouterLink` from `@angular/router`
+  - [ ] Add `RouterLink` to the `imports` array.
 - [ ] **Task 2: Write Tests for HomeComponent (Red Phase)**
   - [ ] Verify the title "On Device Blog Translation with Gemma" is rendered.
   - [ ] Verify the combined description text is rendered.

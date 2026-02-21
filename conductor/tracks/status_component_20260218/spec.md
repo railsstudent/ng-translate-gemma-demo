@@ -10,17 +10,9 @@ This track involves creating a centralized `StatusComponent` to provide visual f
 
 ## Functional Requirements
 
-1. **Status Consumption (ModelsService):**
-    - Utilize the `status` signal in `ModelsService`.
-    - Signal Type: `Signal<{ status: string, msg?: string, progress?: number }>`
-    - Supported statuses: `idle`, `downloading`, `success`, `error`, `unsupported`.
-    - Create a computed `statusMessage` signal in `ModelsService` with the following logic:
-        - If `status` is `error`, `success`, or `unsupported`: return `msg`.
-        - If `status` is `downloading`: return `Downloading: ${progress}%`.
-        - Default: return an empty string.
-2. **StatusComponent (Presentational):**
+1. **StatusComponent (Presentational):**
     - **Location:** `src/app/core/ui/status/status.component.ts`.
-    - **Inputs:** `status` (signal) and `message` (signal).
+    - **Inputs:** `statusType` (signal) and `statusMessage` (signal).
     - **Visual Representation:**
         - **Color-coded Alerts:**
             - `downloading`: Blue
@@ -31,11 +23,13 @@ This track involves creating a centralized `StatusComponent` to provide visual f
             - `downloading`: `bootstrapCloudDownload`
             - `success`: `bootstrapCheckCircle`
             - `error` / `unsupported`: `bootstrapExclamationCircle`
-        - **Behavior:** When the status is `idle`, the component must be entirely hidden.
-3. **Application Integration (AppComponent):**
+            - `close` /  `bootstrapXCircle` and only appear when `statusType` is `success`.
+        - **Behavior:** When the statusType is `idle`, the component must be entirely hidden.
+        - **Behavior:** When `bootstrapXCircle` is clicked, the component must be entirely hidden.
+2. **Application Integration (AppComponent):**
     - Import `StatusComponent` into `AppComponent`.
     - Place the component in the `AppComponent` template, positioned above the main content area (`router-outlet`).
-    - Bind the component inputs to the `status` and `statusMessage` signals from `ModelsService`.
+    - Bind the component inputs to the `statusType` and `statusMessage` signals from `ModelsService`.
 
 ## Technical Implementation Details
 
@@ -53,9 +47,9 @@ This track involves creating a centralized `StatusComponent` to provide visual f
 - The `StatusComponent` is hidden when the state is `idle`.
 - The `StatusComponent` correctly displays the color, icon, and message corresponding to the active state (`downloading`, `success`, `error`, `unsupported`).
 - The `statusMessage` correctly formats the download progress.
-- Updating the status in `ModelsService` reflects immediately in the UI.
+- Updating the `statusType` in `ModelsService` reflects immediately in the UI.
 
 ## Out of Scope
 
-- Implementation of the `HomeComponent`, `HeaderComponent`, or `TranslateComponent`.
+- Implementation of the `HomeComponent`, `HeaderComponent`, or `TranslationComponent`.
 - Implementing conditional logic inside those components (e.g., hiding/showing links).

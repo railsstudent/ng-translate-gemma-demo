@@ -8,7 +8,7 @@ This is the foundational track for the application's visual identity. It establi
 
 1. **Global Styling:**
     * Apply a global background color to the application.
-    * **Options:** `indigo-500` or `indigo-600` (Final decision to be made during implementation for optimal contrast).
+    * Background color: `bg-indigo-600`.
     * Set the default text color to white across the entire application.
 
 2. **Footer Component Content:**

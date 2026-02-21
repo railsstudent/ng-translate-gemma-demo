@@ -9,7 +9,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Create a HomeComponent that is shown when the application is first loaded. It has a center div that displays the name of the application "On Device Blog Translation with Gemma" at the center. It has a description to describe the purpose of the app and a link to navigate to the TranslateComponent.**
+- [ ] **Track: Create a HomeComponent that is shown when the application is first loaded. It has a center div that displays the name of the application "On Device Blog Translation with Gemma" at the center. It has a description to describe the purpose of the app and a link to navigate to the TranslationComponent.**
   *Link: [./tracks/home_component_20260218/](./tracks/home_component_20260218/)*
 
 ---

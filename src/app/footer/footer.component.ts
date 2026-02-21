@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
 
@@ -9,7 +9,7 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
   template: `
     <footer class="flex justify-between items-center p-4 w-full bg-indigo-600 text-white">
       <div>
-        &copy; {{ currentYear }} Connie Leung
+        {{ copyright() }}
       </div>
       <div>
         {{ techStack }}
@@ -25,6 +25,6 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
-  currentYear = new Date().getFullYear();
+  copyright = computed(() => `© ${new Date().getFullYear()} Connie Leung`);
   techStack = "The demo is built by Angular and Transformer.js.";
 }

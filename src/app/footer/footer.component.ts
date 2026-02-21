@@ -15,7 +15,7 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
         Angular, Transformers.js
       </div>
       <div>
-        <a href="https://github.com/ng-translate-gemma-demo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-gray-300">
+        <a href="https://github.com/railsstudent/ng-translate-gemma-demo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-gray-300">
           <ng-icon name="bootstrapGithub"></ng-icon>
           ng-translate-gemma-demo
         </a>

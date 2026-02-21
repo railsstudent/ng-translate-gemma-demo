@@ -12,7 +12,7 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
         &copy; {{ currentYear }} Connie Leung
       </div>
       <div>
-        Angular, Transformers.js
+        {{ techStack }}
       </div>
       <div>
         <a href="https://github.com/railsstudent/ng-translate-gemma-demo" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-gray-300">
@@ -26,4 +26,5 @@ import { bootstrapGithub } from '@ng-icons/bootstrap-icons';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  techStack = "The demo is built by Angular and Transformer.js.";
 }

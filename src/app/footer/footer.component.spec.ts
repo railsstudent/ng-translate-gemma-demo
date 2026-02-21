@@ -35,8 +35,7 @@ describe('FooterComponent', () => {
 
   it('should display the tech stack', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Angular');
-    expect(compiled.textContent).toContain('Transformers.js');
+    expect(compiled.textContent).toContain('The demo is built by Angular and Transformer.js.');
   });
 
   it('should have a github link with correct attributes', () => {

@@ -7,7 +7,7 @@ Establish the base visual identity of the application.
 - [x] **Task 1: Define Global Theme** [8223f65]
   - [ ] Update `src/styles.css` or `src/app/app.component.css` to apply `bg-indigo-600` and `text-white` to the root container.
   - [ ] Ensure the background covers the full viewport height.
-- [ ] **Task 2: Verify Base Styling**
+- [x] **Task 2: Verify Base Styling** [e2064b9]
   - [ ] Run the app to confirm the indigo background and white text color are applied globally.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 1: Foundation & Global Styling' (Protocol in workflow.md)**
 

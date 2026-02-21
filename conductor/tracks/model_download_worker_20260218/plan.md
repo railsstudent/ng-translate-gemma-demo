@@ -5,20 +5,24 @@
 Implement the core download logic in the Web Worker.
 
 - [ ] **Task 1: Scaffold Web Worker**
-  - [ ] Create `src/app/on-device-models/workers/download-model.worker.ts`.
+  - [ ] Create `src/app/on-device-models/workers/download-models.worker.ts`.
   - [ ] Implement basic `onmessage` listener.
+  - [ ] Initialize an empty transformer_pipelines map `transformer_pipelines: { [key: string]: any }`
 - [ ] **Task 2: Implement Hardware Acceleration Detection**
   - [ ] Add logic to detect WebGPU support.
   - [ ] Configure Transformers.js v3 to use WebGPU if available.
   - [ ] Implement `try-catch` for WebGPU failure with WASM fallback.
 - [ ] **Task 3: Implement Model Download Logic**
-  - [ ] Map `translate-gemma` and `tts` types to their respective model IDs.
+  - [ ] Implement handler for `type: 'delete-all-models'` to delete all models from the Cache API (`transformers-cache`).
+  - [ ] Map `translate-gemma` type to model ID `google/translategemma-4b-it` (task: `text-generation` or appropriate translation task).
+  - [ ] Map `tts` type to model ID `onnx-community/Kokoro-82M-v1.0-ONNX` (task: `text-to-speech`).
   - [ ] Use `env.allowLocalModels = false` (or appropriate Transformers.js config).
-  - [ ] Implement `progress_callback` to send `{ status: 'downloading', progress }` messages.
+  - [ ] Implement `progress_callback` to send `{ status: 'downloading', progress, model_id }` messages.
+  - [ ] Instantiate the pipeline with the specific task type and assign to the `transformer_pipelines` map by the key.
 - [ ] **Task 4: Implement Status Reporting**
-  - [ ] Send `{ status: 'idle' }` on initialization and after successful downloads.
+  - [ ] Send `{ status: 'idle' }` on initialization.
+  - [ ] Send `{ status: 'ready', model_id }` after a successful model download completion.
   - [ ] Send `{ status: 'error', msg }` on any caught exceptions.
-  - [ ] Send `{ status: 'success', msg }` after all models are downloaded successful.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 1: Web Worker Development' (Protocol in workflow.md)**
 
 ## Phase 2: Models Service Implementation
@@ -28,37 +32,37 @@ Integrate the worker into the Angular service and manage the download state.
 - [ ] **Task 1: Scaffold LocalStorageService**
   - [ ] Create `src/app/on-device-models/services/local-storage.service.ts`.
   - [ ] Implement `getItem(key: string): string | null` and `setItem(key: string, value: string): void`.
-- [ ] **Task 2: Declare status signal, pipeline signals and computed signals in Service**
+- [ ] **Task 2: Declare status signal and computed signals in Service**
   - [ ] Create `src/app/on-device-models/types.ts` to declare:
-    - `StatusType = 'idle' | 'downloading' | 'success' | 'error' | 'unsupported'`
-    - `type ModelStatus = { status: StatusType; msg?: string; progress?: number; };`
+    - `StatusType = 'idle' | 'downloading' | 'ready' | 'success' | 'error' | 'unsupported'`
+    - `type ModelStatus = { status: StatusType; msg?: string; progress?: number; model_id?: string; };`
     - `DOWNLOAD_EXPIRATION_MS = 30 * 24 * 60 * 60 * 1000`
   - [ ] Implement the private `#status` signal to `ModelStatus`.
   - [ ] Implement the `statusMessage` computed signal:
     - `error`, `success`, `unsupported` -> return `msg`.
-    - `downloading` -> return `Downloading a model: ${progress}%`.
+    - `downloading` -> return `Downloading ${model_id}: ${progress}%`.
+    - `ready` -> return `Preparing next download...`.
     - `idle` / default -> return `''`.
   - [ ] Expose a read-only `status` signal, `status = this.#status.asReadonly()`.
   - [ ] Expose a computed `statusType` signal that returns the `status().status`.
-  - [ ] Declare `translation_pipeline = signal<any>(null);`.
-  - [ ] Declare `tts_pipeline = signal<any>(null);`.
 - [ ] **Task 3: Initialize Worker and Inject LocalStorageService in Service**
   - [ ] In `ModelsService` constructor, check for `typeof Worker !== 'undefined'`.
   - [ ] If unsupported, set #status signal to `{ status: 'unsupported' }`.
   - [ ] If supported, instantiate the worker and inject `LocalStorageService`.
 - [ ] **Task 4: Implement Message Handling & Orchestration with Date Check**
   - [ ] Implement logic to check `localStorageService.getItem('last_model_download_date')`.
-  - [ ] If date exists AND `(Date.now() - Number(last_model_download_date) < DOWNLOAD_EXPIRATION_MS)`, skip download sequence (or handle "load from cache").
+  - [ ] If date exists AND `(Date.now() - Number(last_model_download_date) < DOWNLOAD_EXPIRATION_MS)`:
+    - [ ] Skip download sequence and proceed directly to pipeline instantiation.
   - [ ] If date missing OR > DOWNLOAD_EXPIRATION_MS:
-    - [ ] Trigger `postMessage({ type: 'translate-gemma' })` immediately on init.
-  - [ ] Implement `worker.onmessage` to update the status signal.
-  - [ ] When `translate-gemma` finishes successfully (status returns to `idle`), trigger `postMessage({ type: 'tts' })`.
-  - [ ] When `translate-gemma` fails, set `{ status: 'error', msg: 'translate-gemma download failed.'}` and no further action.
-  - [ ] When `tts` finishes successfully:
-    - [ ] Set `{ status: 'success', msg: 'All models are downloaded successfully' }`.
-    - [ ] Set `localStorageService.setItem('last_model_download_date', Date.now().toString())`.
-    - [ ] Instantiate/Load the pipelines (if not already done by worker) and update `translation_pipeline` / `tts_pipeline` signals.
-  - [ ] When `tts` fails, set `{ status: 'error', msg: 'tts download failed.' }`.
+    - [ ] Trigger `postMessage({ type: 'delete-all-models' })` to delete all models from the cache keyed by the `transformers-cache`.
+    - [ ] Trigger `postMessage({ type: 'translate-gemma' })` to start the sequential download.
+  - [ ] Implement `worker.onmessage` to update the status signal and log the new state to the console.
+  - [ ] When a model finishes successfully (status becomes `ready`), trigger `postMessage` for the next model (e.g., 'tts').
+  - [ ] When a model fails, set `{ status: 'error', msg: event.data.msg }` and no further action.
+  - [ ] When all models are successfully downloaded
+    - [ ] If downloaded: Set `localStorageService.setItem('last_model_download_date', Date.now().toString())` and set `{ status: 'success', msg: 'All models are downloaded successfully.' }`.
+  - [ ] If the download sequence was skipped:
+    - [ ]  Set `{ status: 'success', msg: 'Models loaded from cache.' }`.
 - [ ] **Task 5: Write Unit Tests for Service**
   - [ ] Mock the Web Worker to verify message passing.
   - [ ] Verify `#status` updates for different worker statuses.
@@ -73,7 +77,6 @@ Verify the system works end-to-end in the application shell.
 
 - [ ] **Task 1: Integrate with AppComponent**
   - [ ] Inject `ModelsService` into `AppComponent`.
-  - [ ] Log status updates to the console in `ModelsService`'s constructor: `console.log('Model Download Status:', status())`.
 - [ ] **Task 2: End-to-End Manual Verification**
   - [ ] Open the browser console and verify the sequence of downloads.
   - [ ] Verify progress updates are logged.

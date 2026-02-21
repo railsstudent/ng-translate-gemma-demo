@@ -15,21 +15,21 @@ Establish the base visual identity of the application.
 
 Create the standalone footer component with responsive sections.
 
-- [ ] **Task 1: Generate Footer Component**
+- [x] **Task 1: Generate Footer Component** [5c8d005]
   - [ ] Create `src/app/footer/footer.component.ts`.
   - [ ] Set `changeDetection: ChangeDetectionStrategy.OnPush`.
   - [ ] Import `NgIcon` and `provideIcons` from `@ng-icons/core`.
   - [ ] Import `bootstrapGithub` from `@ng-icons/bootstrap-icons`.
   - [ ] Add `NgIcon` to the `imports` array.
   - [ ] Add `viewProviders: [provideIcons({ bootstrapGithub })]` to the `@Component` decorator.
-- [ ] **Task 2: Implement Footer Logic**
+- [x] **Task 2: Implement Footer Logic** [5c8d005]
   - [ ] Add a computed signal or property to get the current year using `new Date().getFullYear()`.
-- [ ] **Task 3: Implement Footer Template & Styling**
+- [x] **Task 3: Implement Footer Template & Styling** [5c8d005]
   - [ ] Build the Flexbox layout: Left (Copyright/Author), Center (Tech Stack), Right (GitHub Repo).
   - [ ] Apply Tailwind classes: `flex`, `justify-between`, `items-center`, `p-4`, `w-full`.
   - [ ] Add the GitHub icon using `<ng-icon name="bootstrapGithub" />`.
   - [ ] Ensure the repo link has `target="_blank"` and `rel="noopener noreferrer"`.
-- [ ] **Task 4: Write Unit Tests for Footer**
+- [x] **Task 4: Write Unit Tests for Footer** [5c8d005]
   - [ ] Verify the current year is displayed.
   - [ ] Verify the author name is present.
   - [ ] Verify the repository link has the correct attributes.

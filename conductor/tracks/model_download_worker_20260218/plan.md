@@ -17,12 +17,13 @@ Implement the core download logic in the Web Worker.
   - [ ] Map `translate-gemma` type to model ID `google/translategemma-4b-it` (task: `text-generation` or appropriate translation task).
   - [ ] Map `tts` type to model ID `onnx-community/Kokoro-82M-v1.0-ONNX` (task: `text-to-speech`).
   - [ ] Use `env.allowLocalModels = false` (or appropriate Transformers.js config).
-  - [ ] Implement `progress_callback` to send `{ status: 'downloading', progress, model_id }` messages.
+  - [ ] Implement `progress_callback` to send `{ status: 'downloading', progress, modelId }` messages.
   - [ ] Instantiate the pipeline with the specific task type and assign to the `transformer_pipelines` map by the key.
 - [ ] **Task 4: Implement Status Reporting**
   - [ ] Send `{ status: 'idle' }` on initialization.
-  - [ ] Send `{ status: 'ready', model_id }` after a successful model download completion.
+  - [ ] Send `{ status: 'ready', modelId }` after a successful model download completion.
   - [ ] Send `{ status: 'error', msg }` on any caught exceptions.
+  - [ ] Send `{ status: 'deleted', msg: 'All models deleted.' }` on models deleted successfully.
 - [ ] **Task: Conductor - User Manual Verification 'Phase 1: Web Worker Development' (Protocol in workflow.md)**
 
 ## Phase 2: Models Service Implementation
@@ -34,14 +35,16 @@ Integrate the worker into the Angular service and manage the download state.
   - [ ] Implement `getItem(key: string): string | null` and `setItem(key: string, value: string): void`.
 - [ ] **Task 2: Declare status signal and computed signals in Service**
   - [ ] Create `src/app/on-device-models/types.ts` to declare:
-    - `StatusType = 'idle' | 'downloading' | 'ready' | 'success' | 'error' | 'unsupported'`
-    - `type ModelStatus = { status: StatusType; msg?: string; progress?: number; model_id?: string; };`
-    - `DOWNLOAD_EXPIRATION_MS = 30 * 24 * 60 * 60 * 1000`
+    - [ ] `type StatusType = 'idle' | 'downloading' | 'ready' | 'success' | 'error' | 'unsupported' | 'deleted'`
+    - [ ] `type ModelStatus = { status: StatusType; msg?: string; progress?: number; modelId?: string; };`
+  - [ ] Create `src/app/on-device-models/constants.ts` to declare:
+    - [ ] `const DOWNLOAD_EXPIRATION_MS = 30 * 24 * 60 * 60 * 1000;`
+    - [ ] `const ALL_MODELS = ['translate-gemma', 'tts']`.
   - [ ] Implement the private `#status` signal to `ModelStatus`.
   - [ ] Implement the `statusMessage` computed signal:
-    - `error`, `success`, `unsupported` -> return `msg`.
-    - `downloading` -> return `Downloading ${model_id}: ${progress}%`.
-    - `ready` -> return `Preparing next download...`.
+    - `error`, `success`, `unsupported`, `deleted` -> return `msg`.
+    - `downloading` -> return `Downloading ${modelId}: ${progress}%`.
+    - `ready` -> return `Model ${this.#status().modelId} is ready.`.
     - `idle` / default -> return `''`.
   - [ ] Expose a read-only `status` signal, `status = this.#status.asReadonly()`.
   - [ ] Expose a computed `statusType` signal that returns the `status().status`.
@@ -50,7 +53,8 @@ Integrate the worker into the Angular service and manage the download state.
   - [ ] If unsupported, set #status signal to `{ status: 'unsupported' }`.
   - [ ] If supported, instantiate the worker and inject `LocalStorageService`.
 - [ ] **Task 4: Implement Message Handling & Orchestration with Date Check**
-  - [ ] Implement `ALL_MODELS = ['translate-gemma', 'tts']`.
+  - [ ] Import `ALL_MODELS` from `src/app/on-device-models/constants.ts`.
+    - [ ] `private readonly all_models = ALL_MODELS`
   - [ ] Implement logic to check `localStorageService.getItem('last_model_download_date')`.
   - [ ] If date exists AND `(Date.now() - Number(last_model_download_date) < DOWNLOAD_EXPIRATION_MS)`:
     - [ ] Skip download sequence and proceed directly to pipeline instantiation.

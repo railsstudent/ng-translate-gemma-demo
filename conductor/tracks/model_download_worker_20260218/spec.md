@@ -26,8 +26,8 @@ This track focuses on implementing a robust model download system using a dedica
 - **Message Protocol (Output):**
   - Emits status updates:
     - `{ status: 'idle' }`: Initial state.
-    - `{ status: 'ready', model_id: string }`: Emitted upon successful completion of a specific model's download.
-    - `{ status: 'downloading', progress: number, model_id: string }`: During download (0-100%).
+    - `{ status: 'ready', modelId: string }`: Emitted upon successful completion of a specific model's download.
+    - `{ status: 'downloading', progress: number, modelId: string }`: During download (0-100%).
     - `{ status: 'error', msg: string }`: On failure.
 
 ### 2. Models Service (`src/app/on-device-models/services/models.service.ts`)
